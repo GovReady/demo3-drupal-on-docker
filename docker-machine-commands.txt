@@ -6,14 +6,14 @@
 # https://docs.docker.com/machine/drivers/aws/
 
 # Create the Docker host, with machine (instance) named "demo-drupal"
-docker-machine create -d amazonec2 --amazonec2-instance-type t2.small --amazonec2-region us-east-2 --amazonec2-vpc-id vpc-f9effa91 --amazonec2-security-group demo-drupal demo-drupal
+docker-machine create -d amazonec2 --amazonec2-instance-type t2.small --amazonec2-region us-east-2 --amazonec2-vpc-id vpc-f9effa91 --amazonec2-security-group demo-drupal demo3-drupal
 
 # Allow host creation to complete. Use this command to see how to
 # switch your Docker host.
-docker-machine env demo-drupal
+docker-machine env demo3-drupal
 
 # Then switch your Docker host.
-eval $(docker-machine env demo-drupal)
+eval $(docker-machine env demo3-drupal)
 
 # In the AWS console, open port 8080 in the "demo-drupal" security
 # group so you can reach Drupal.
@@ -24,4 +24,4 @@ docker-compose up
 
 # If you'd like to SSH into the host (for instance, to mount an EBS
 # volume or something), use this command.
-docker-machine ssh demo-drupal
+docker-machine ssh demo3-drupal
